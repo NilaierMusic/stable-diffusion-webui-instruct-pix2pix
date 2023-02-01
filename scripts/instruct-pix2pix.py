@@ -250,7 +250,7 @@ def generate(
                 factor = math.ceil(min(width, height) * factor / 64) * 64 / min(width, height)
                 width = int((width * factor) // 64) * 64
                 height = int((height * factor) // 64) * 64
-                in_image = ImageOps.fit(input_image, (width, height), method=Image.Resampling.LANCZOS)
+                in_image = ImageOps.fit(input_image, (width, height), method=Image.LANCZOS)
        
                 with torch.no_grad(), autocast("cuda"), model.ema_scope():
                    
